@@ -1,20 +1,94 @@
 <template>
-  <div class="min-h-screen flex flex-row bg-slate-900 pt-4">
-    <div class="p-4 text-white w-1/6">
-      <h1 class="text-3xl">Visa Indonesia</h1>
-      <ul class="space-y-4 mt-12">
-        <SidebarLink to="/dashboard" title="Dashboard" />
-        <SidebarLink to="/service" title="Service" />
-        <SidebarLink to="/order" title="Order" />
-        <SidebarLink to="/customer" title="Customer" />
-        <SidebarLink to="/customer-identity" title="Customer Identity" />
-        <SidebarLink to="/promo-code" title="Promo Code" />
-        <SidebarLink to="/admin" title="Admin User" />
-        
-      </ul>
+  <div
+    class="w-full h-screen overflow-y-auto bg-slate-800 border-slate-800 lg:pt-6"
+  >
+    <div
+      id="docs-sidebar"
+      class="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] w-64 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full bg-slate-800 border-slate-800"
+    >
+      <div class="px-6">
+        <a
+          class="flex-none text-xl font-semibold text-white"
+          href="#"
+          aria-label="Brand"
+          >Visa Indonesia</a
+        >
+      </div>
+      <nav
+        class="hs-accordion-group p-6 w-full flex flex-col flex-wrap"
+        data-hs-accordion-always-open
+      >
+        <ul class="space-y-1.5">
+          <SidebarLink to="/dashboard" title="Dashboard">
+            <template #icon>
+              <HomeIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/service" title="Service">
+            <template #icon>
+              <LayersIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/order" title="Order">
+            <template #icon>
+              <BookIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/customer" title="Customer">
+            <template #icon>
+              <UsersIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/customer-identity" title="Customer Identity">
+            <template #icon>
+              <BriefcaseIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/promo-code" title="Promo Code">
+            <template #icon>
+              <TagIcon />
+            </template>
+          </SidebarLink>
+          <SidebarLink to="/admin" title="Admin User">
+            <template #icon>
+              <UserIcon />
+            </template>
+          </SidebarLink>
+        </ul>
+      </nav>
     </div>
-    <div class="bg-white flex-1 p-4 rounded-ss-3xl">
-            <slot/>
-        </div>
+
+    <div
+      class="bg-white text-slate-700 h-full p-8 flex flex-col gap-4 lg:ml-80 lg:rounded-ss-[3rem]"
+    >
+      <!-- Navigation Toggle -->
+      <button
+        type="button"
+        class="text-slate-500 hover:text-slate-600 block lg:hidden"
+        data-hs-overlay="#docs-sidebar"
+        aria-controls="docs-sidebar"
+        aria-label="Toggle navigation"
+      >
+        <span class="sr-only">Toggle Navigation</span>
+        <MenuIcon />
+      </button>
+      <!-- End Navigation Toggle -->
+      <slot />
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import {
+  HomeIcon,
+  TagIcon,
+  BookIcon,
+  UsersIcon,
+  BriefcaseIcon,
+  UserIcon,
+  LayersIcon,
+  MenuIcon,
+} from "lucide-vue-next";
+
+const toggle = useState("toggle", () => true);
+</script>
