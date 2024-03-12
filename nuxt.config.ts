@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import path from "path";
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+  // vite: {
+  //   optimizeDeps: { exclude: ["fsevents"] },
+  // },
+
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -25,5 +31,16 @@ export default defineNuxtConfig({
       ],
     },
   },
-  plugins: ["~/plugins/preline.client.ts"],
+  plugins: [
+    "~/plugins/preline.client.ts",
+    "~/plugins/vue-query.ts",
+    "~/plugins/chart.client.ts",
+  ],
+  modules: ["nuxt-primevue"],
+  primevue: {
+    // unstyled: true,
+    // options: {
+    //   unstyled: true,
+    // },
+  },
 });

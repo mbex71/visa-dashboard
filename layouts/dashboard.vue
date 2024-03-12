@@ -59,12 +59,12 @@
     </div>
 
     <div
-      class="bg-white text-slate-700 h-full p-8 flex flex-col gap-4 lg:ml-80 lg:rounded-ss-[3rem]"
+      class="bg-white text-slate-700 min-h-screen px-8 py-8 flex flex-col gap-4 lg:ml-80 lg:rounded-ss-[3rem]"
     >
       <!-- Navigation Toggle -->
       <button
         type="button"
-        class="text-slate-500 hover:text-slate-600 block lg:hidden"
+        class="text-slate-500 hover:text-slate-600 lg:hidden ring-1 rounded p-1 ring-slate-400 w-12 flex justify-center"
         data-hs-overlay="#docs-sidebar"
         aria-controls="docs-sidebar"
         aria-label="Toggle navigation"
@@ -73,6 +73,10 @@
         <MenuIcon />
       </button>
       <!-- End Navigation Toggle -->
+      <div class="my-4">
+        <h1 class="text-2xl font-semibold text-slate-800">{{ props.title }}</h1>
+        <p class="text-sm text-slate-600/50">{{ props.subTitle }}</p>
+      </div>
       <slot />
     </div>
   </div>
@@ -89,6 +93,16 @@ import {
   LayersIcon,
   MenuIcon,
 } from "lucide-vue-next";
+import { defineProps } from "vue";
+
+type TProps = {
+  title: string;
+  subTitle?: string;
+};
+
+// const layoutCustomProps = useAttrs();
+// console.log(layoutCustomProps.title);
 
 const toggle = useState("toggle", () => true);
+const props = defineProps<TProps>();
 </script>
