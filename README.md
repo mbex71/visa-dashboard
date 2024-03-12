@@ -1,23 +1,20 @@
-# Nuxt 3 Minimal Starter
+# Visa Dashboard
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Slicing dan pengimplementasian dashboard Visa Indonesia menggunakan Nuxt 3 `https://www.figma.com/file/lh08BljSEwSOvP5ES5fEVr?embed_host=notion&kind=file&mode=design&node-id=0%3A1&t=OwwbL0m4hehvQLjL-1&type=design&viewer=1`
+
+Untuk data menggunakan api based dengan dataset yang mengunduh dari `kaggle.com`. No database conigured, just using JSON data. check in directory `server/api/products/ts`
+
+### Example page
+
+https://visa-dashboard.vercel.app/dashboard
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
 # pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,17 +22,7 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,33 +30,15 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
 # pnpm
 pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
 # pnpm
 pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
